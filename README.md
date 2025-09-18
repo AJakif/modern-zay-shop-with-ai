@@ -61,7 +61,7 @@ Humans (me) ensured:
 
 ### AI Tools Used
 - **ChatGPT**, **Gemini**, **Claude**, **GitHub Copilot**, **DeepSeek** , **Cursor** (Free versions)
-- Note: As I used free versions of the AI tools I had a lot of limitations mostly related to the context window size and the number of tokens that could be processed. So
+- Note: As I used free versions of the AI tools I had a lot of limitations mostly related to the context window size and the number of tokens that could be processed. So results were not always perfect.
 
 ---
 
