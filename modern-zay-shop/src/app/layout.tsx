@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zay Shop eCommerce HTML CSS Template",
-  description: "Zay Shop eCommerce HTML CSS Template",
+  title: "Zay Shop - Modern eCommerce Template",
+  description: "A modern eCommerce template built with Next.js, TypeScript, and Tailwind CSS. Features responsive design, interactive components, and beautiful UI.",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+          {children}
       </body>
     </html>
   );
