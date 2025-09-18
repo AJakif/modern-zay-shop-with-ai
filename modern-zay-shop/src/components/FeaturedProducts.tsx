@@ -55,7 +55,7 @@ export default function FeaturedProduct() {
         {/* Section header */}
         <div className="text-center py-3">
           <div className="mx-auto lg:w-1/2">
-            <h1 className="h1 font-roboto text-[48px] font-extralight">Featured Product</h1>
+            <h1 className="h1 font-roboto text-[48px] font-extralight text-gray-900">Featured Product</h1>
             <p className="text-gray-600 mt-2">
               Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
               Excepteur sint occaecat cupidatat non proident.

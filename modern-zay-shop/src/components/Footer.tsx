@@ -60,13 +60,26 @@ export default function Footer() {
 
         {/* Social and Subscribe */}
         <div className="flex flex-col md:flex-row justify-between items-center text-gray-100 mt-6 mb-4">
-          <div className="flex space-x-3 mb-3 md:mb-0">
-            {[{icon: FaFacebookF, link:"http://facebook.com/"},{icon: FaInstagram, link:"https://www.instagram.com/"},{icon: FaTwitter, link:"https://twitter.com/"},{icon: FaLinkedin, link:"https://www.linkedin.com/"}].map((item, idx)=>(
-              <Link key={idx} href={item.link} target="_blank" className="border border-gray-100 rounded-full p-2 flex items-center justify-center hover:bg-gray-800 transition-colors">
-                <item.icon className="text-gray-100" />
-              </Link>
-            ))}
-          </div>
+        <div className="flex space-x-3 mb-3 md:mb-0">
+        {[
+          { icon: FaFacebookF, link: "http://facebook.com/", label: "Facebook" },
+          { icon: FaInstagram, link: "https://www.instagram.com/", label: "Instagram" },
+          { icon: FaTwitter, link: "https://twitter.com/", label: "Twitter" },
+          { icon: FaLinkedin, link: "https://www.linkedin.com/", label: "LinkedIn" }
+        ].map((item, idx) => (
+          <Link
+            key={idx}
+            href={item.link}
+            target="_blank"
+            aria-label={`Visit our ${item.label} page`}
+            className="border border-[#cfd6e1] rounded-full w-10 h-10 flex items-center justify-center bg-transparent 
+                      hover:bg-[#cfd6e1] transition-colors duration-200"
+          >
+            <item.icon className="text-[#cfd6e1] text-lg hover:text-[#212934] transition-colors duration-200" />
+          </Link>
+        ))}
+      </div>
+
 
           <div className="flex items-center space-x-2">
             <input 
