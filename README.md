@@ -65,14 +65,14 @@ Humans (me) ensured:
 
 ---
 
-## 📂 Step-by-Step Migration Process  
+## 📂 Step-by-Step Migration Process (Example) 
 
 ### **Step 1: Initial Analysis & Planning**  
 - **Prompt**:  
   > "Analyze this HTML template and suggest a component architecture for migrating to Next.js with TypeScript and Tailwind CSS"  
 - **Context File**: `index.html`  
 - **AI Contribution (Claude)**:  
-  - Identified **8 distinct components** needed  
+  - Identified **6 distinct components** needed  
   - Suggested TypeScript interfaces for data models  
   - Recommended a **Next.js App Router structure**  
 
@@ -118,15 +118,14 @@ Humans (me) ensured:
 - **Prompt**:  
   > "Set up image optimization and placeholder images"  
 - **AI Contribution (ChatGPT, Gemini, DeepSeek)**:  
-  - Configured **Next.js `<Image />`** component  
-  - Set up external image domains  
+  - Configured **Next.js `<Image />`** component for image optimization
   - Implemented **responsive loading**  
 - **Human Fixes**:  
-  - Adjusted **aspect ratios, placeholders, and lazy loading**  
+  - Adjusted **aspect ratios, placeholders, and lazy loading** for the images
 
 ---
 
-### **Step 6: Bug Fixing**  
+### **Step 6: Bug Fixing (one example provided)**  
 - **Prompt**:  
   > "In footer.tsx social media logo border is too bold, and hover effect not working properly. Use index.html as reference"  
 - **Context File**: `footer.tsx`, `index.html`  
@@ -137,7 +136,7 @@ Humans (me) ensured:
 
 ---
 
-### **Step 7: Mobile Responsiveness**  
+### **Step 7: Mobile Responsiveness (one example provided)**  
 - **Prompt**:  
   > "Product card mobile response doesn't have spaces of card properly, use index.html as reference"  
 - **Context File**: `featuredproduct.tsx`, `index.html`  
@@ -192,7 +191,8 @@ npm run lint
 
 1. **Bootstrap → Tailwind Migration**  
    - AI successfully converted many grids, spacing, and typography classes.
-   - However, **not every Bootstrap class mapped directly to Tailwind**, requiring manual inspection and adjustment. 
+   - However, **not every Bootstrap class mapped directly to Tailwind**, requiring manual inspection and adjustment.
+   - There were some custom classes that were not converted correctly, so I had to manually adjust them.
    - Developers fine-tuned dozens of classes to achieve **layout fidelity and pixel-perfection**. 
 
 2. **Carousel Implementation**  
@@ -210,13 +210,13 @@ npm run lint
 5. **Human + AI Collaboration**
    - AI was most effective for **scaffolding, repetitive class conversions, and boilerplate setup**.
    - Human developers focused on **creative decisions, QA, responsiveness, and ensuring design accuracy**.
-   - Overall, AI accelerated work by **saving 50%+ of development time**, allowing developers to dedicate more effort to **complex reasoning and fine-tuning**.
+   - Overall, AI accelerated work by **saving 60%+ of development time**, allowing developers to dedicate more effort to **complex reasoning and fine-tuning**.
 
 ---
 
 ## ✅ Deliverables  
 
-- A **working GitHub project** (Next.js + TypeScript + Tailwind + Font Awesome)  
+- A **working GitHub project** (Next.js + TypeScript + Tailwind)  
 - This **README case study** covering:  
   - Migrated page (`index.html`)  
   - How AI was used (with prompts + context files)  
