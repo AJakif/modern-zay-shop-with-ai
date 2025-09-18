@@ -1,112 +1,105 @@
 'use client';
 
 import Image from 'next/image';
-import { Star, ShoppingCart } from 'lucide-react';
+import Link from 'next/link';
+import { FaStar } from 'react-icons/fa';
 
 interface Product {
   id: number;
   name: string;
-  price: string;
   image: string;
+  price: string;
   description: string;
-  rating: number;
   reviews: number;
+  rating: number; // 0–5 stars
+  link: string;
 }
 
 const products: Product[] = [
   {
     id: 1,
     name: 'Gym Weight',
-    price: '$240.00',
     image: '/images/feature_prod_01.jpg',
+    price: '$240.00',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.',
+    reviews: 24,
     rating: 3,
-    reviews: 24
+    link: '/',
   },
   {
     id: 2,
     name: 'Cloud Nike Shoes',
-    price: '$480.00',
     image: '/images/feature_prod_02.jpg',
+    price: '$480.00',
     description: 'Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.',
+    reviews: 48,
     rating: 3,
-    reviews: 48
+    link: '/',
   },
   {
     id: 3,
     name: 'Summer Addides Shoes',
-    price: '$360.00',
     image: '/images/feature_prod_03.jpg',
+    price: '$360.00',
     description: 'Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.',
+    reviews: 74,
     rating: 5,
-    reviews: 74
-  }
+    link: '/',
+  },
 ];
 
-export default function FeaturedProducts() {
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, index) => (
-      <Star
-        key={index}
-        className={`w-4 h-4 ${
-          index < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
-        }`}
-      />
-    ));
-  };
-
+export default function FeaturedProduct() {
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">
-            Featured Product
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident.
-          </p>
+    <section className="bg-[#e9eef5]">
+      <div className="container mx-auto py-12">
+        {/* Section header */}
+        <div className="text-center py-3">
+          <div className="mx-auto lg:w-1/2">
+            <h1 className="h1 font-roboto text-[48px] font-extralight">Featured Product</h1>
+            <p className="text-gray-600 mt-2">
+              Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident.
+            </p>
+          </div>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Product grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           {products.map((product) => (
-            <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transition-shadow h-full">
-              {/* Product Image */}
-              <div className="relative w-full aspect-square overflow-hidden">
+            <div key={product.id} className="mb-4 flex flex-col bg-white shadow rounded overflow-hidden">
+              <Link href={product.link} className="block">
                 <Image
                   src={product.image}
                   alt={product.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  width={400}
+                  height={300}
+                  className="w-full h-auto object-cover"
                 />
-              </div>
-
-              {/* Product Info */}
-              <div className="p-6">
-                {/* Rating and Price */}
-                <div className="flex justify-between items-center mb-4">
-                  <div className="flex items-center space-x-1">
-                    {renderStars(product.rating)}
-                  </div>
-                  <span className="text-gray-600 font-semibold">{product.price}</span>
-                </div>
+              </Link>
+              <div className="p-4 flex flex-col flex-1">
+                {/* Ratings and Price */}
+                <ul className="flex justify-between list-none mb-2">
+                  <li className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar
+                        key={i}
+                        className={i < product.rating ? 'text-yellow-400' : 'text-gray-300'}
+                      />
+                    ))}
+                  </li>
+                  <li className="text-gray-500 font-medium">{product.price}</li>
+                </ul>
 
                 {/* Product Name */}
-                <h3 className="text-xl font-semibold text-gray-800 mb-3 hover:text-green-600 transition-colors">
-                  <a href="/shop-single">{product.name}</a>
-                </h3>
+                <Link href={product.link} className="text-2xl font-medium text-gray-900 hover:underline mb-2">
+                  {product.name}
+                </Link>
 
                 {/* Description */}
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  {product.description}
-                </p>
+                <p className="text-gray-600 mb-2 flex-1">{product.description}</p>
 
                 {/* Reviews */}
-                <p className="text-gray-500 text-sm mb-4">
-                  Reviews ({product.reviews})
-                </p>
+                <p className="text-gray-500">Reviews ({product.reviews})</p>
               </div>
             </div>
           ))}

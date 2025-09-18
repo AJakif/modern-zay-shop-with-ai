@@ -1,67 +1,75 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+
 
 interface Category {
   id: number;
   name: string;
   image: string;
+  link: string;
 }
 
 const categories: Category[] = [
   {
     id: 1,
     name: 'Watches',
-    image: '/images/category_img_01.jpg'
+    image: '/images/category_img_01.jpg',
+    link: '#'
   },
   {
     id: 2,
     name: 'Shoes',
-    image: '/images/category_img_02.jpg'
+    image: '/images/category_img_02.jpg',
+    link: '#'
   },
   {
     id: 3,
     name: 'Accessories',
-    image: '/images/category_img_03.jpg'
+    image: '/images/category_img_03.jpg',
+    link: '#'
   }
 ];
 
-export default function CategoriesSection() {
+export default function CategoriesOfTheMonth() {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">
-            Categories of The Month
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-            deserunt mollit anim id est laborum.
+    <section className="container mx-auto py-12">
+      {/* Section header */}
+      <div className="text-center pt-3">
+        <div className="mx-auto lg:w-1/2">
+          <h1 className="h1 font-roboto text-[48px] font-extralight">Categories of The Month</h1>
+          <p className="text-gray-600 mt-2">
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+            mollit anim id est laborum.
           </p>
         </div>
+      </div>
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {categories.map((category) => (
-            <div key={category.id} className="text-center group">
-              <div className="relative w-48 h-48 mx-auto mb-6 overflow-hidden rounded-full border-4 border-gray-200 group-hover:border-green-500 transition-colors">
-                <Image
-                  src={category.image}
-                  alt={category.name}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                {category.name}
-              </h3>
-              <button className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors">
+      {/* Categories grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        {categories.map((category) => (
+          <div key={category.id} className="p-5 mt-3 flex flex-col items-center">
+            <Link href={category.link} className="block">
+              <Image
+                src={category.image}
+                alt={category.name}
+                width={200}
+                height={200}
+                className="rounded-full border object-cover"
+              />
+            </Link>
+            <h2 className="text-center text-xl font-medium mt-3 mb-3">{category.name}</h2>
+            <p className="text-center">
+              <Link
+                href={category.link}
+                className="inline-block bg-[#59ab6e] hover:bg-green-700 text-white font-medium py-2 px-6 rounded transition-colors"
+              >
                 Go Shop
-              </button>
-            </div>
-          ))}
-        </div>
+              </Link>
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

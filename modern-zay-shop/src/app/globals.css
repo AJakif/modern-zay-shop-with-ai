@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fff;
   --foreground: #171717;
+}
+
+@layer base {
+  body, ul, li, p, a, label, input, div {
+    font-family: var(--font-roboto), 'Roboto', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 300 !important;
+  }
 }
 
 @theme inline {
@@ -22,5 +30,18 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header-logo {
+    color: #59ab6e;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 48px !important;
+    font-weight: 200 !important;
+    font-style: normal;
+    line-height: 1.2;
+}
+
+#template-mo-zay-hero-carousel {
+  background: #efefef !important;
 }

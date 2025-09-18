@@ -1,183 +1,94 @@
 'use client';
 
-import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import Link from 'next/link';
+import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Company Info */}
-          <div>
-            <h2 className="text-2xl font-bold text-green-600 border-b border-gray-700 pb-3 mb-6">
+    <footer className="bg-[#212934]" id="tempaltemo_footer">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col md:flex-row md:space-x-8">
+          {/* Column 1 */}
+          <div className="md:w-1/3 pt-5">
+            <h2 className="text-green-600 font-roboto font-medium text-2xl border-b border-gray-300 pb-3">
               Zay Shop
             </h2>
-            <ul className="space-y-3">
-              <li className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-green-600" />
+            <ul className="list-none text-gray-100 mt-3 space-y-2">
+              <li className="flex items-center space-x-2">
+                <i className="fas fa-map-marker-alt fa-fw"></i>
                 <span>123 Consectetur at ligula 10660</span>
               </li>
-              <li className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-green-600" />
-                <a href="tel:010-020-0340" className="hover:text-green-400 transition-colors">
+              <li className="flex items-center space-x-2">
+                <i className="fa fa-phone fa-fw"></i>
+                <Link href="tel:010-020-0340" className="text-gray-100 hover:underline">
                   010-020-0340
-                </a>
+                </Link>
               </li>
-              <li className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-green-600" />
-                <a href="mailto:info@company.com" className="hover:text-green-400 transition-colors">
+              <li className="flex items-center space-x-2">
+                <i className="fa fa-envelope fa-fw"></i>
+                <Link href="mailto:info@company.com" className="text-gray-100 hover:underline">
                   info@company.com
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Products */}
-          <div>
-            <h2 className="text-xl font-semibold border-b border-gray-700 pb-3 mb-6">
-              Products
-            </h2>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  Luxury
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  Sport Wear
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  Men's Shoes
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  Women's Shoes
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  Popular Dress
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  Gym Accessories
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  Sport Shoes
-                </a>
-              </li>
+          {/* Column 2 */}
+          <div className="md:w-1/3 pt-5">
+            <h2 className="text-gray-100 border-b border-gray-300 pb-3 text-xl">Products</h2>
+            <ul className="list-none text-gray-100 mt-3 space-y-2">
+              {['Luxury','Sport Wear',"Men's Shoes","Women's Shoes",'Popular Dress','Gym Accessories','Sport Shoes'].map((item, idx) => (
+                <li key={idx}>
+                  <Link href="#" className="hover:underline">{item}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Further Info */}
-          <div>
-            <h2 className="text-xl font-semibold border-b border-gray-700 pb-3 mb-6">
-              Further Info
-            </h2>
-            <ul className="space-y-2">
-              <li>
-                <a href="/" className="hover:text-green-400 transition-colors">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="hover:text-green-400 transition-colors">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  Shop Locations
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-green-400 transition-colors">
-                  FAQs
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="hover:text-green-400 transition-colors">
-                  Contact
-                </a>
-              </li>
+          {/* Column 3 */}
+          <div className="md:w-1/3 pt-5">
+            <h2 className="text-gray-100 border-b border-gray-300 pb-3 text-xl">Further Info</h2>
+            <ul className="list-none text-gray-100 mt-3 space-y-2">
+              {['Home','About Us','Shop Locations','FAQs','Contact'].map((item, idx) => (
+                <li key={idx}>
+                  <Link href="#" className="hover:underline">{item}</Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-gray-700 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            {/* Social Media */}
-            <div className="flex space-x-4 mb-4 md:mb-0">
-              <a
-                href="https://facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:border-green-500 hover:text-green-500 transition-colors"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:border-green-500 hover:text-green-500 transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://twitter.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:border-green-500 hover:text-green-500 transition-colors"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:border-green-500 hover:text-green-500 transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
+        {/* Social and Subscribe */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-gray-100 mt-6 mb-4">
+          <div className="flex space-x-3 mb-3 md:mb-0">
+            {[{icon: FaFacebookF, link:"http://facebook.com/"},{icon: FaInstagram, link:"https://www.instagram.com/"},{icon: FaTwitter, link:"https://twitter.com/"},{icon: FaLinkedin, link:"https://www.linkedin.com/"}].map((item, idx)=>(
+              <Link key={idx} href={item.link} target="_blank" className="border border-gray-100 rounded-full p-2 flex items-center justify-center hover:bg-gray-800 transition-colors">
+                <item.icon className="text-gray-100" />
+              </Link>
+            ))}
+          </div>
 
-            {/* Newsletter */}
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="px-4 py-2 bg-gray-800 border border-gray-600 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-              />
-              <button className="px-4 py-2 bg-green-600 text-white rounded-r-md hover:bg-green-700 transition-colors">
-                Subscribe
-              </button>
-            </div>
+          <div className="flex items-center space-x-2">
+            <input 
+              type="text" 
+              placeholder="Email address" 
+              className="px-3 py-2 bg-gray-900 border border-gray-300 text-white focus:outline-none focus:ring-1 focus:ring-green-600 rounded-l-md"
+            />
+            <button className="px-4 py-2 bg-green-600 text-white rounded-r-md hover:bg-green-700 transition-colors">
+              Subscribe
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="bg-black py-4">
+      {/* Bottom copyright */}
+      <div className="w-full bg-[#1d242d] py-3 mt-4">
         <div className="container mx-auto px-4">
-          <p className="text-center text-gray-400">
-            Copyright © 2021 Company Name | Designed by{' '}
-            <a
-              href="https://templatemo.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-green-500 hover:text-green-400 transition-colors"
-            >
+          <p className="text-left text-gray-100 text-sm">
+            Copyright &copy; 2021 Company Name | Designed by{' '}
+            <Link href="https://templatemo.com" target="_blank" className="hover:underline">
               TemplateMo
-            </a>
+            </Link>
           </p>
         </div>
       </div>
