@@ -50,56 +50,64 @@ const products: Product[] = [
 
 export default function FeaturedProduct() {
   return (
-    <section className="bg-[#e9eef5]">
-      <div className="container mx-auto py-12">
+    <section className="bg-gray-100">
+      <div className="container mx-auto py-12 px-4">
         {/* Section header */}
-        <div className="text-center py-3">
-          <div className="mx-auto lg:w-1/2">
-            <h1 className="h1 font-roboto text-[48px] font-extralight text-gray-900">Featured Product</h1>
-            <p className="text-gray-600 mt-2">
+        <div className="flex justify-center text-center py-3">
+          <div className="w-full lg:w-1/2 mx-auto">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-4">Featured Product</h1>
+            <p className="text-gray-600">
               Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
               Excepteur sint occaecat cupidatat non proident.
             </p>
           </div>
         </div>
 
-        {/* Product grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        {/* Product grid - matching HTML structure */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mt-8">
           {products.map((product) => (
-            <div key={product.id} className="mb-4 flex flex-col bg-white shadow rounded overflow-hidden">
-              <Link href={product.link} className="block">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={400}
-                  height={300}
-                  className="w-full h-auto object-cover"
-                />
-              </Link>
-              <div className="p-4 flex flex-col flex-1">
-                {/* Ratings and Price */}
-                <ul className="flex justify-between list-none mb-2">
-                  <li className="flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <FaStar
-                        key={i}
-                        className={i < product.rating ? 'text-yellow-400' : 'text-gray-300'}
-                      />
-                    ))}
-                  </li>
-                  <li className="text-gray-500 font-medium">{product.price}</li>
-                </ul>
-
-                {/* Product Name */}
-                <Link href={product.link} className="text-2xl font-medium text-gray-900 hover:underline mb-2">
-                  {product.name}
+            <div key={product.id} className="col-span-1 mb-4 px-0 md:px-2">
+              <div className="card h-full bg-white shadow-sm rounded-lg overflow-hidden mx-3 md:mx-1">
+                <Link href={product.link} className="block">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={400}
+                    height={300}
+                    className="w-full h-auto object-cover"
+                  />
                 </Link>
+                <div className="p-6">
+                  {/* Ratings and Price */}
+                  <ul className="flex justify-between items-center list-none mb-3">
+                    <li className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <FaStar
+                          key={i}
+                          className={i < product.rating ? 'text-yellow-400' : 'text-gray-300'}
+                          size={16}
+                        />
+                      ))}
+                    </li>
+                    <li className="text-gray-500 font-medium text-right">{product.price}</li>
+                  </ul>
 
-                {/* Description */}
-                <p className="text-gray-600 mb-2 flex-1">{product.description}</p>
+                  {/* Product Name */}
+                  <Link 
+                    href={product.link} 
+                    className="block text-xl md:text-2xl font-normal text-gray-900 hover:text-gray-700 no-underline hover:no-underline mb-3"
+                  >
+                    {product.name}
+                  </Link>
 
-                {/* Reviews */}
-                <p className="text-gray-500">Reviews ({product.reviews})</p>
+                  {/* Description */}
+                  <p className="text-gray-600 mb-3 text-sm md:text-base leading-relaxed">
+                    {product.description}
+                  </p>
+
+                  {/* Reviews */}
+                  <p className="text-gray-500 text-sm">Reviews ({product.reviews})</p>
+                </div>
               </div>
             </div>
           ))}

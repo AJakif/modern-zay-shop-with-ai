@@ -162,30 +162,60 @@ const MainHeader: React.FC = () => {
           </ul>
         </div>
       </nav>
-      {/* Search Modal */}
+
+      {/* Search Modal - matching HTML design exactly */}
       {isSearchModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4 shadow-lg">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold">Search</h3>
+        <div 
+          className="fixed inset-0 bg-white bg-opacity-95 flex items-center justify-center z-50 transition-opacity duration-150"
+          onClick={(e) => {
+            // Close modal if clicking on backdrop
+            if (e.target === e.currentTarget) {
+              toggleSearchModal();
+            }
+          }}
+        >
+          <div className="w-full max-w-4xl mx-4 px-8">
+            {/* Close button positioned like in HTML */}
+            <div className="w-full pt-4 mb-12 text-right">
               <button
+                type="button"
                 onClick={toggleSearchModal}
-                className="text-gray-500 hover:text-gray-700 text-2xl leading-none"
-                aria-label="Close search"
+                className="text-gray-500 hover:text-gray-700 bg-transparent border-0 p-2 focus:outline-none transition-colors"
+                aria-label="Close"
+                style={{ fontSize: '28px', lineHeight: '1' }}
               >
                 ×
               </button>
             </div>
-            <div className="flex">
-              <input
-                type="text"
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-1 focus:ring-[#59ab6e]"
-                placeholder="Search ..."
-              />
-              <button className="px-4 py-2 bg-[#59ab6e] text-white rounded-r-md hover:bg-green-700 transition-colors" aria-label="Search">
-                <FontAwesomeIcon icon={faSearch} />
-              </button>
-            </div>
+            
+            {/* Search form matching HTML structure */}
+            <form 
+              action="" 
+              method="get" 
+              className="w-full border-0 p-0 bg-transparent"
+              onSubmit={(e) => {
+                e.preventDefault();
+                // Handle search logic here
+                console.log('Search submitted');
+              }}
+            >
+              <div className="flex mb-8">
+                <input
+                  type="text"
+                  className="flex-1 px-4 py-3 text-lg border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#59ab6e] focus:border-[#59ab6e] bg-white"
+                  id="inputModalSearch"
+                  name="q"
+                  placeholder="Search ..."
+                  autoFocus
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-3 bg-[#59ab6e] text-white border border-[#59ab6e] rounded-r-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-[#59ab6e] transition-colors"
+                >
+                  <FontAwesomeIcon icon={faSearch} className="text-white" />
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}

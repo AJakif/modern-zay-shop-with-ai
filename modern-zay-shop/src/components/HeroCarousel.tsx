@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -117,6 +117,18 @@ const slides: Slide[] = [
 
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Auto-slide functionality
+  useEffect(() => {
+    if (!isHovered) {
+      const interval = setInterval(() => {
+        setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+      }, 2000); // Change slide every 2 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [isHovered]);
 
   const prevSlide = () => {
     setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
@@ -130,6 +142,8 @@ export default function HeroCarousel() {
     <div
       id="template-mo-zay-hero-carousel"
       className="relative w-full bg-[#efefef] overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Slides */}
       <div
@@ -181,14 +195,14 @@ export default function HeroCarousel() {
       {/* Controls */}
       <button
         onClick={prevSlide}
-        className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-[#59ab6e] transition"
+        className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-[#59ab6e] transition hover:text-[#4a9660]"
         aria-label="Previous slide"
       >
         <FontAwesomeIcon icon={faChevronLeft} className="w-8 h-8" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-3 top-1/2 -translate-y-1/2 z-10 text-[#59ab6e] transition"
+        className="absolute right-3 top-1/2 -translate-y-1/2 z-10 text-[#59ab6e] transition hover:text-[#4a9660]"
         aria-label="Next slide"
       >
         <FontAwesomeIcon icon={faChevronRight} className="w-8 h-8" />
