@@ -33,38 +33,48 @@ const categories: Category[] = [
 
 export default function CategoriesOfTheMonth() {
   return (
-    <section className="container mx-auto py-12 px-4">
-      {/* Section header */}
-      <div className="flex justify-center text-center pt-3">
-        <div className="w-full lg:w-1/2 mx-auto">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-4">Categories of The Month</h1>
-          <p className="text-gray-600">
+    <section className="max-w-7xl mx-auto py-12 px-4">
+      {/* Section header - matching Bootstrap row/col structure */}
+      <div className="flex justify-center pt-3 pb-8">
+        <div className="w-full max-w-xl text-center">
+          <h1 className="h1">Categories of The Month</h1>
+          <p className="text-gray-700 text-base leading-relaxed">
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
             mollit anim id est laborum.
           </p>
         </div>
       </div>
 
-      {/* Categories grid - matching HTML structure */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+      {/* Categories grid - matching Bootstrap col-12 col-md-4 behavior */}
+      <div className="grid grid-cols-1 md:grid-cols-3">
         {categories.map((category) => (
-          <div key={category.id} className="w-full md:w-auto p-5 mt-3 flex flex-col items-center">
-            <Link href={category.link} className="block mb-4">
+          <div key={category.id} className="px-12 py-12 mt-4 mb-4 text-center">
+            <Link href={category.link} className="inline-block mb-1">
               <Image
                 src={category.image}
                 alt={category.name}
-                width={200}
-                height={200}
-                className="rounded-full border border-gray-200 object-cover w-full h-auto max-w-[200px]"
+                width={300}
+                height={300}
+                className="rounded-full border border-gray-300 w-full h-auto max-w-none"
+                style={{ 
+                  aspectRatio: '1/1',
+                  objectFit: 'cover'
+                }}
               />
             </Link>
-            <h5 className="text-center text-lg md:text-xl font-medium mt-3 mb-3 text-gray-900">
+            <h5 className="text-m font-medium mt-3 mb-3 text-gray-900">
               {category.name}
             </h5>
-            <p className="text-center">
+            <p className="text-center mb-0">
               <Link
                 href={category.link}
-                className="inline-block bg-green-600 hover:bg-green-700 text-white font-medium py-2.5 px-6 rounded transition-colors duration-200 no-underline"
+                className="inline-block bg-[#59ab6e] hover:bg-green-700 text-white font-normal py-2 px-4 rounded transition-colors duration-200 no-underline"
+                style={{ 
+                  fontSize: '18px',
+                  lineHeight: '1.5',
+                  borderRadius: '0.375rem',
+                  padding: '6px 12px'
+                }}
               >
                 Go Shop
               </Link>
