@@ -27,7 +27,6 @@ modern-zay-shop/
 │   ├── app/
 │   │   ├── layout.tsx
 │   │   ├── page.tsx
-│   │   ├── templatemo.css
 │   │   └── globals.css
 │   └── components/
 │       ├── TopNav.tsx
@@ -39,6 +38,7 @@ modern-zay-shop/
 ├── public/ 
 │   ├── images/
 │   └── css/
+│       └── templatemo.css
 ├── next.config.ts
 └── package.json
 ```
