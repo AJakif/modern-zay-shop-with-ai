@@ -7,31 +7,76 @@ import { faFacebookF, faInstagram, faTwitter, faLinkedin } from '@fortawesome/fr
 
 export default function TopNav() {
   return (
-    <nav id='templatemo_nav_top' className="bg-dark text-[#cfd6e1] hidden lg:block min-h-[40px] text-sm">
-      <div className="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center">
-            <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4 mr-2" />
-            <a href="mailto:info@company.com" className="hover:text-[#cfd6e1] text-[#cfd6e1] no-underline">info@company.com</a>
+    <nav 
+      id="templatemo_nav_top" 
+      className="bg-[#212934] text-[#cfd6e1] hidden lg:block"
+      style={{ minHeight: '40px' }}
+    >
+      <div className="container mx-auto px-4">
+        <div className="w-full flex justify-between items-center py-2">
+          <div>
+            <FontAwesomeIcon icon={faEnvelope} className="w-3 h-3 mx-2" />
+            <a 
+              className="text-[#cfd6e1] no-underline hover:text-[#cfd6e1] text-base font-light" 
+              href="mailto:info@company.com"
+            >
+              info@company.com
+            </a>
+            <FontAwesomeIcon icon={faPhone} className="w-3 h-3 mx-2" />
+            <a 
+              className="text-[#cfd6e1] no-underline hover:text-[#cfd6e1] text-base font-light" 
+              href="tel:010-020-0340"
+            >
+              010-020-0340
+            </a>
           </div>
-          <div className="flex items-center ml-4">
-            <FontAwesomeIcon icon={faPhone} className="w-4 h-4 mr-2" />
-            <a href="tel:010-020-0340" className="hover:text-[#cfd6e1] text-[#cfd6e1] no-underline">010-020-0340</a>
+          <div>
+            <a 
+              className="text-[#cfd6e1] hover:text-[#69bb7e] inline-block" 
+              href="https://fb.com/templatemo" 
+              target="_blank" 
+              rel="sponsored"
+            >
+              <FontAwesomeIcon 
+                icon={faFacebookF} 
+                className="w-3 h-3 mr-2" 
+                style={{ fontSize: '0.875em', fontWeight: '400' }} 
+              />
+            </a>
+            <a 
+              className="text-[#cfd6e1] hover:text-[#69bb7e] inline-block" 
+              href="https://www.instagram.com/" 
+              target="_blank"
+            >
+              <FontAwesomeIcon 
+                icon={faInstagram} 
+                className="w-3 h-3 mr-2" 
+                style={{ fontSize: '0.875em', fontWeight: '400' }} 
+              />
+            </a>
+            <a 
+              className="text-[#cfd6e1] hover:text-[#69bb7e] inline-block" 
+              href="https://twitter.com/" 
+              target="_blank"
+            >
+              <FontAwesomeIcon 
+                icon={faTwitter} 
+                className="w-3 h-3 mr-2" 
+                style={{ fontSize: '0.875em', fontWeight: '400' }} 
+              />
+            </a>
+            <a 
+              className="text-[#cfd6e1] hover:text-[#69bb7e] inline-block" 
+              href="https://www.linkedin.com/" 
+              target="_blank"
+            >
+              <FontAwesomeIcon 
+                icon={faLinkedin} 
+                className="w-3 h-3" 
+                style={{ fontSize: '0.875em', fontWeight: '400' }} 
+              />
+            </a>
           </div>
-        </div>
-        <div className="flex items-center space-x-4">
-          <a href="https://fb.com/templatemo" target="_blank" rel="noopener noreferrer" className="hover:text-[#68bb7d]">
-            <FontAwesomeIcon icon={faFacebookF} className="w-4 h-4" />
-          </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#68bb7d]">
-            <FontAwesomeIcon icon={faInstagram} className="w-4 h-4" />
-          </a>
-          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#68bb7d]">
-            <FontAwesomeIcon icon={faTwitter} className="w-4 h-4" />
-          </a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#68bb7d]">
-            <FontAwesomeIcon icon={faLinkedin} className="w-4 h-4" />
-          </a>
         </div>
       </div>
     </nav>

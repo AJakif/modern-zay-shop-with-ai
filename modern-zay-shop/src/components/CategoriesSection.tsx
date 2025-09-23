@@ -31,7 +31,7 @@ const categories: Category[] = [
   }
 ];
 
-export default function CategoriesOfTheMonth() {
+export default function CategoriesSection() {
   return (
     <section className="max-w-7xl mx-auto py-12 px-4">
       {/* Section header - matching Bootstrap row/col structure */}
@@ -53,12 +53,15 @@ export default function CategoriesOfTheMonth() {
               <Image
                 src={category.image}
                 alt={category.name}
-                width={300}
-                height={300}
-                className="rounded-full border border-gray-300 w-full h-auto max-w-none"
+                width={284}
+                height={284}
+                className="rounded-full border border-gray-300"
                 style={{ 
                   aspectRatio: '1/1',
-                  objectFit: 'cover'
+                  objectFit: 'cover',
+                  width: '100%',
+                  height: 'auto',
+                  maxWidth: '284px'
                 }}
               />
             </Link>

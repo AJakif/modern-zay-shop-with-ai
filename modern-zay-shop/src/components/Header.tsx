@@ -29,9 +29,9 @@ const MainHeader: React.FC = () => {
             className="text-success logo h1 no-underline font-['Roboto'] font-medium"
             style={{
               color: '#59ab6e',
-              fontWeight: 500,
+              fontWeight: '500 !important',
               fontFamily: 'Roboto, sans-serif',
-              fontSize: 48,
+              fontSize: '48px !important',
               lineHeight: 1.1,
               letterSpacing: '-1px',
             }}

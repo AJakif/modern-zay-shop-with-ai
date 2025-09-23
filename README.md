@@ -22,11 +22,12 @@ The focus of this work was not only technical migration but also **exploring Hum
 ## 📁 Project Structure
 
 ```
-zay-shop-nextjs/
+modern-zay-shop/
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx
 │   │   ├── page.tsx
+│   │   ├── templatemo.css
 │   │   └── globals.css
 │   └── components/
 │       ├── TopNav.tsx
@@ -35,7 +36,7 @@ zay-shop-nextjs/
 │       ├── CategoriesSection.tsx
 │       ├── FeaturedProducts.tsx
 │       └── Footer.tsx
-├── public/
+├── public/ 
 │   ├── images/
 │   └── css/
 ├── next.config.ts
@@ -221,7 +222,7 @@ npm run lint
   - Migrated page (`index.html`)  
   - How AI was used (with prompts + context files)  
   - Key challenges and learnings  
-- Screenshots of the **migration process and results**  
+- Screenshots of the **comparison between original and migrated versions**  
 
 ---
 
